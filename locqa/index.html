@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LocQA · YudiGamesStudio</title>
+  <meta name="description" content="LocQA for Unity: catch overflowing, missing and broken translations in every language, in the editor and in CI.">
+  <link rel="icon" href="images/icon.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../">YudiGamesStudio</a>
+      <nav><a href="#features">Features</a><a href="#docs">Manual</a><a href="#support">Support</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>LocQA</h1>
+        <p class="lead">Catch overflowing, missing and broken translations in every language, in the Unity Editor and in CI.</p>
+        <div class="buttons">
+          <span class="badge">Coming soon to the Unity Asset Store</span>
+          <a class="button ghost" href="LocQA-Manual.pdf">Read the manual (PDF)</a>
+        </div>
+        <img class="cover" src="images/cover.webp" width="1950" height="1300" alt="LocQA: a German button label overflowing, and the finding that points to it">
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>The problem</h2>
+        <p>Translated text breaks UI in ways you only see on a tester's phone, in a language you don't read. A German
+          label runs past its button, a Russian title shows empty boxes, a French string loses its <code>{0}</code>.</p>
+        <p>LocQA measures every localized string against the real text component it appears in, with your fonts, sizes and
+          layout settings, and shows exactly where it won't fit, which glyphs are missing, and which translations are
+          empty or broken.</p>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <h2>Features</h2>
+        <ul class="features">
+          <li>Finds text that overflows its box, per language, measured with TextMesh Pro's own layout engine</li>
+          <li>Finds characters your fonts and their fallbacks can't draw</li>
+          <li>Catches empty translations and mismatched placeholders and rich-text tags</li>
+          <li>Finds hard-coded text in scenes and prefabs that was never localized</li>
+          <li>Checks that source text has room to grow, before any translation exists</li>
+          <li>Jumps to the failing object, with a preview of the overflowing text</li>
+          <li>Reads CSV and TSV (with a column-mapping wizard), JSON files and Unity Localization string tables</li>
+          <li>Runs in CI from the command line, with exit codes and HTML, JSON, CSV and JUnit reports</li>
+          <li>Re-scans only what changed</li>
+          <li>Takes your own checks and string sources through a small C# interface</li>
+        </ul>
+        <p class="muted" style="margin-top: 22px">Scans 500,000 strings and 10,000 text components across 2,000 prefabs in
+          under a minute, and re-scans in seconds when nothing changed (laptop i7-11370H, 16 GB RAM).</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Screenshots</h2>
+        <div class="gallery">
+          <figure><a href="images/screenshot-1.webp"><img src="images/screenshot-1.webp" width="2400" height="1600" loading="lazy" alt="Catch overflow before players do"></a><figcaption>Catch overflow before players do</figcaption></figure>
+          <figure><a href="images/screenshot-2.webp"><img src="images/screenshot-2.webp" width="2400" height="1600" loading="lazy" alt="The LocQA window with every finding of the demo scan"></a><figcaption>Every finding, every language</figcaption></figure>
+          <figure><a href="images/screenshot-3.webp"><img src="images/screenshot-3.webp" width="2400" height="1600" loading="lazy" alt="The overflow preview with the text's rect outlined"></a><figcaption>See exactly what doesn't fit</figcaption></figure>
+          <figure><a href="images/screenshot-4.webp"><img src="images/screenshot-4.webp" width="2400" height="1600" loading="lazy" alt="A missing-glyph finding"></a><figcaption>Find the boxes before they ship</figcaption></figure>
+          <figure><a href="images/screenshot-5.webp"><img src="images/screenshot-5.webp" width="2400" height="1600" loading="lazy" alt="The HTML report"></a><figcaption>One report the whole team can read</figcaption></figure>
+          <figure><a href="images/screenshot-6.webp"><img src="images/screenshot-6.webp" width="2400" height="1600" loading="lazy" alt="A CI run failing on LocQA's exit code"></a><figcaption>Fail the build, not the launch</figcaption></figure>
+          <figure><a href="images/screenshot-7.webp"><img src="images/screenshot-7.webp" width="2400" height="1600" loading="lazy" alt="A custom check written in C#"></a><figcaption>Add your own checks in minutes</figcaption></figure>
+          <figure><a href="images/screenshot-8.webp"><img src="images/screenshot-8.webp" width="2400" height="1600" loading="lazy" alt="Supported Unity versions, pipelines and packages"></a><figcaption>Works with your project</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap columns">
+        <div>
+          <h2>Works with</h2>
+          <ul class="plain">
+            <li>Unity 2022.3 LTS and Unity 6</li>
+            <li>Built-in Render Pipeline, URP and HDRP</li>
+            <li>TextMesh Pro and legacy uGUI Text</li>
+            <li>Unity Localization, optional</li>
+            <li>Any build target: LocQA runs in the Editor and adds nothing to your builds</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Data handling</h2>
+          <ul class="plain">
+            <li>Runs entirely in the Editor, with no network calls and no analytics</li>
+            <li>Reads your prefabs, scenes and string files, and never changes them</li>
+            <li>Writes only its settings, its cache and the reports you export</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Known limitations</h2>
+        <ul class="plain">
+          <li>UI Toolkit text isn't scanned yet.</li>
+          <li>Text is measured at the profile's reference resolution; use one profile per resolution that matters.</li>
+          <li>Text that scripts set at runtime is checked only when its component is bound to a key.</li>
+          <li>Rows in layout groups whose widths depend on each other are approximated.</li>
+          <li>Fonts that use operating-system fonts can't be inspected for missing glyphs.</li>
+          <li>No text shaping is added for Arabic and similar scripts; text is measured as TextMesh Pro draws it.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="docs">
+      <div class="wrap">
+        <h2>Manual</h2>
+        <p>The full manual ships with the package and is here to read before you buy:
+          <a href="LocQA-Manual.pdf">LocQA Manual (PDF)</a>.</p>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="wrap">
+        <h2>Support</h2>
+        <p>Email <a href="mailto:yudigamesstudio@gmail.com?subject=LocQA">yudigamesstudio@gmail.com</a> with your Unity
+          version and LocQA version. Replies within 48 hours.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <p>Copyright (c) 2026 YudiGamesStudio. All rights reserved.</p>
+      <p>Unity is a trademark of Unity Technologies. LocQA is not affiliated with or endorsed by Unity Technologies.</p>
+    </div>
+  </footer>
+</body>
+</html>

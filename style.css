@@ -1,0 +1,85 @@
+/* Copyright (c) 2026 YudiGamesStudio. All rights reserved. */
+:root {
+  --bg: #14171C;
+  --surface: #1D2129;
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #F2F4F7;
+  --muted: #9AA3B2;
+  --accent: #F5A524;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { color-scheme: dark; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+a { color: var(--accent); }
+img { max-width: 100%; height: auto; display: block; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+header.site { border-bottom: 1px solid var(--line); }
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+header.site a.brand { color: var(--text); font-weight: 800; text-decoration: none; letter-spacing: -0.01em; }
+header.site nav { display: flex; gap: 20px; }
+header.site nav a { color: var(--muted); text-decoration: none; }
+header.site nav a:hover { color: var(--text); }
+
+section { padding: 56px 0; }
+section + section { border-top: 1px solid var(--line); }
+
+h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 800; }
+h2 { font-size: 26px; letter-spacing: -0.01em; margin-bottom: 18px; }
+h3 { font-size: 18px; margin-bottom: 6px; }
+p + p { margin-top: 12px; }
+
+.lead { font-size: 20px; color: var(--muted); margin-top: 16px; max-width: 720px; }
+.muted { color: var(--muted); }
+.accent { color: var(--accent); }
+
+.hero { padding-top: 64px; }
+.hero .cover { margin-top: 36px; border-radius: var(--radius); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45); }
+
+.buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.button {
+  display: inline-block; padding: 12px 20px; border-radius: 10px;
+  background: var(--accent); color: var(--bg); font-weight: 700; text-decoration: none;
+}
+.button.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+.badge { display: inline-block; padding: 12px 20px; border-radius: 10px; border: 1px dashed var(--line); color: var(--muted); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.card {
+  display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; color: var(--text); text-decoration: none;
+}
+.card .body { padding: 18px 20px 22px; }
+.card:hover { border-color: var(--accent); }
+.card.soon { display: flex; align-items: center; justify-content: center; min-height: 200px; color: var(--muted); }
+
+ul.features { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px 28px; }
+ul.features li { padding-left: 22px; position: relative; }
+ul.features li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
+
+ul.plain { padding-left: 20px; }
+ul.plain li + li { margin-top: 6px; }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.gallery figure { background: var(--surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+.gallery a { display: block; }
+.gallery figcaption { padding: 10px 14px; color: var(--muted); font-size: 15px; }
+
+.columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+
+footer.site { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 15px; }
+footer.site p + p { margin-top: 4px; }
+
+@media (max-width: 480px) {
+  header.site nav { gap: 14px; font-size: 15px; }
+}
