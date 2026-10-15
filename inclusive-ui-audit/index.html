@@ -25,6 +25,7 @@
         <div class="buttons">
           <span class="badge">Coming soon to the Unity Asset Store</span>
           <a class="button ghost" href="InclusiveUIAudit-Manual.pdf">Read the manual (PDF)</a>
+          <a class="button ghost" href="sample-report.html">See a sample report</a>
         </div>
         <img class="cover" src="images/cover.webp" width="1950" height="1300" alt="Inclusive UI Audit: a shop screen with its title, close button and offer text outlined as accessibility issues">
       </div>
@@ -39,6 +40,22 @@
         <p>Inclusive UI Audit lays out each prefab and scene as a reference phone would show it, renders it, and measures
           what is really on screen. Every issue links to the WCAG 2.2 guideline it refers to, and a dated report keeps
           what you fixed and what you accepted, with your reasons.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Why Inclusive UI Audit?</h2>
+        <ul class="plain">
+          <li><strong>Measured on the rendered screen.</strong> Contrast is sampled from the pixels behind each character,
+            so gradients, images and see-through panels count, not just the color of the panel behind.</li>
+          <li><strong>Built for uGUI and TextMeshPro.</strong> It audits the prefabs and scenes of the whole project, laid
+            out at a reference phone, with sizes in dp for every CanvasScaler mode.</li>
+          <li><strong>Evidence you can hand over.</strong> A dated HTML report with screenshots, WCAG 2.2 links and the
+            reason for every issue you accepted.</li>
+          <li><strong>Built for release checks.</strong> The command line returns an exit code and writes JUnit, so a new
+            problem fails the build instead of reaching players.</li>
+        </ul>
       </div>
     </section>
 
@@ -115,6 +132,7 @@
         <h2>Manual</h2>
         <p>The full manual ships with the package and is here to read before you buy:
           <a href="InclusiveUIAudit-Manual.pdf">Inclusive UI Audit Manual (PDF)</a>.</p>
+        <p>To see what an audit produces, open the <a href="sample-report.html">evidence report from the demo screen</a>.</p>
       </div>
     </section>
 
