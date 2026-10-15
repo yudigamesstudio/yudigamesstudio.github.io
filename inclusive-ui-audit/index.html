@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inclusive UI Audit · YudiGamesStudio</title>
+  <meta name="description" content="Inclusive UI Audit for Unity: the accessibility audit built for uGUI and TextMeshPro. Contrast, touch targets, labels and text size, measured on what players see.">
+  <link rel="icon" href="images/icon.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../">YudiGamesStudio</a>
+      <nav><a href="#features">Features</a><a href="#docs">Manual</a><a href="#support">Support</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Inclusive UI Audit</h1>
+        <p class="lead">The accessibility audit built for uGUI and TextMeshPro: contrast, touch targets, labels and text
+          size, measured on what players see.</p>
+        <div class="buttons">
+          <span class="badge">Coming soon to the Unity Asset Store</span>
+          <a class="button ghost" href="InclusiveUIAudit-Manual.pdf">Read the manual (PDF)</a>
+        </div>
+        <img class="cover" src="images/cover.webp" width="1950" height="1300" alt="Inclusive UI Audit: a shop screen with its title, close button and offer text outlined as accessibility issues">
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>The problem</h2>
+        <p>A title that is readable on the dark half of a gradient fades into the light half. A close button is
+          comfortable with a mouse and too small for a thumb. An icon-only button means nothing to a screen reader.
+          These problems hide in the UI until a player, a store reviewer or an accessibility audit finds them.</p>
+        <p>Inclusive UI Audit lays out each prefab and scene as a reference phone would show it, renders it, and measures
+          what is really on screen. Every issue links to the WCAG 2.2 guideline it refers to, and a dated report keeps
+          what you fixed and what you accepted, with your reasons.</p>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <h2>Features</h2>
+        <ul class="features">
+          <li>Text contrast measured against the background as it renders: gradients, images and see-through panels included</li>
+          <li>Touch-target size and spacing in real dp, for every CanvasScaler mode</li>
+          <li>Finds icon-only buttons and other controls a screen reader can't name</li>
+          <li>Text size, state colors, color-only toggles and text that won't fit at 200% size</li>
+          <li>Color-vision preview: protanopia, deuteranopia, tritanopia and achromatopsia</li>
+          <li>Click an issue to see the screen with it outlined, or jump to the object; Scene view markers</li>
+          <li>Accept an issue with a reason, saved in one project file that reviews well in git</li>
+          <li>Dated HTML evidence report with screenshots, WCAG 2.2 links and accepted-issue reasons</li>
+          <li>Runs in CI from the command line, with exit codes and HTML, JSON, CSV and JUnit reports</li>
+          <li>Takes your own rules through a small C# interface</li>
+        </ul>
+        <p class="muted" style="margin-top: 22px">Audits 200 screens in under 30 seconds (laptop i7-11370H, RTX 3050 Ti).</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Screenshots</h2>
+        <div class="gallery">
+          <figure><a href="images/screenshot-1.webp"><img src="images/screenshot-1.webp" width="2400" height="1600" loading="lazy" alt="Contrast measured on the rendered screen, with the gradient title and faint offer text outlined"></a><figcaption>Contrast measured on the rendered screen</figcaption></figure>
+          <figure><a href="images/screenshot-2.webp"><img src="images/screenshot-2.webp" width="2400" height="1600" loading="lazy" alt="The Inclusive UI Audit window listing the demo issues, with the title contrast issue selected and previewed with deuteranopia"></a><figcaption>Find it, see it, fix it or accept it</figcaption></figure>
+          <figure><a href="images/screenshot-3.webp"><img src="images/screenshot-3.webp" width="2400" height="1600" loading="lazy" alt="The demo screen with typical vision, protanopia, deuteranopia and achromatopsia"></a><figcaption>See your UI as color-blind players do</figcaption></figure>
+          <figure><a href="images/screenshot-4.webp"><img src="images/screenshot-4.webp" width="2400" height="1600" loading="lazy" alt="The nine rules on one screen, each with its WCAG guideline"></a><figcaption>Nine rules, linked to WCAG 2.2</figcaption></figure>
+          <figure><a href="images/screenshot-5.webp"><img src="images/screenshot-5.webp" width="2400" height="1600" loading="lazy" alt="The HTML evidence report with the screen and its issue table"></a><figcaption>An evidence report you can hand over</figcaption></figure>
+          <figure><a href="images/screenshot-6.webp"><img src="images/screenshot-6.webp" width="2400" height="1600" loading="lazy" alt="A CI run failing on the audit's exit code"></a><figcaption>Gate every build in CI</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap columns">
+        <div>
+          <h2>Works with</h2>
+          <ul class="plain">
+            <li>Unity 2022.3 LTS and Unity 6</li>
+            <li>Built-in Render Pipeline, URP and HDRP</li>
+            <li>uGUI and TextMesh Pro, on Screen Space and World Space canvases</li>
+            <li>Any build target: Inclusive UI Audit runs in the Editor and adds nothing to your builds</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Data handling</h2>
+          <ul class="plain">
+            <li>Runs entirely in the Editor, with no network calls and no analytics</li>
+            <li>Reads your prefabs and scenes in throw-away copies, and never changes them</li>
+            <li>Writes only its settings, the issues you accept and the reports you export</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Known limitations</h2>
+        <ul class="plain">
+          <li>UI Toolkit screens aren't audited yet.</li>
+          <li>Game-world backgrounds behind see-through UI are left out of contrast samples, since they change while playing.</li>
+          <li>Animated UI is measured in the state it is saved in.</li>
+          <li>Accessible labels are checked for being present, not for meaning.</li>
+          <li>The checks help you find problems; they don't certify compliance with any law or standard.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="docs">
+      <div class="wrap">
+        <h2>Manual</h2>
+        <p>The full manual ships with the package and is here to read before you buy:
+          <a href="InclusiveUIAudit-Manual.pdf">Inclusive UI Audit Manual (PDF)</a>.</p>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="wrap">
+        <h2>Support</h2>
+        <p>Email <a href="mailto:yudigamesstudio@gmail.com?subject=Inclusive%20UI%20Audit">yudigamesstudio@gmail.com</a>
+          with your Unity version, render pipeline and Inclusive UI Audit version. Replies within 48 hours.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <p>Copyright (c) 2026 YudiGamesStudio. All rights reserved.</p>
+      <p>Unity is a trademark of Unity Technologies. Inclusive UI Audit is not affiliated with or endorsed by Unity Technologies.</p>
+    </div>
+  </footer>
+</body>
+</html>
